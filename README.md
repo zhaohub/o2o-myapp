@@ -1,2 +1,3 @@
 # o2o-mytest
-联系所使用的java项目
+练习所使用的java项目
+by 赵刚
