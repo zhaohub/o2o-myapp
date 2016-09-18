@@ -6,6 +6,12 @@ package com.test.leetcode;
 public class StringtoInteger {
 
 
+    /**
+     * 赞不支持空格，输入有误或溢出时抛出NumberFormatException
+     *
+     * @param str
+     * @return
+     */
     public static int myAtoi(String str) {
         if (str == null || str.length() == 0)
             return 0;
@@ -35,7 +41,7 @@ public class StringtoInteger {
 
 
     public static void main(String[] args) {
-        String s = "892343";
+        String s = "892 343";
         System.out.println(myAtoi(s));
     }
 
