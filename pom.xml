@@ -84,4 +84,21 @@
         </plugins>
     </build>
 
+    <scm>
+        <url>https://github.com/zhaohub/o2o-mytest</url>
+        <connection>https://github.com/zhaohub/o2o-mytest.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>zhaogang</name>
+            <id>zhaogang</id>
+            <email>zg3407@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
 </project>
