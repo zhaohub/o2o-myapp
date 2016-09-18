@@ -3,6 +3,7 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
     <servlet>
         <servlet-name>ViewStatusMessages</servlet-name>
         <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
@@ -12,4 +13,5 @@
         <servlet-name>ViewStatusMessages</servlet-name>
         <url-pattern>/lbClassicStatus</url-pattern>
     </servlet-mapping>
+
 </web-app>
