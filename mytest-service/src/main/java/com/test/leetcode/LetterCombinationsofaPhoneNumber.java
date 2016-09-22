@@ -26,10 +26,11 @@ public class LetterCombinationsofaPhoneNumber {
                 }
             } else {
                 List<String> tmp = new ArrayList<String>();
-                for (String s : result)
-                    for (int j = 0; j < buttons[c].length(); j++)
+                for (String s : result) {
+                    for (int j = 0; j < buttons[c].length(); j++) {
                         tmp.add(s + String.valueOf(buttons[c].charAt(j)));
-
+                    }
+                }
                 result.clear();
                 result.addAll(tmp);
             }
