@@ -4,16 +4,6 @@ package com.test.leetcode;
  * Created by zhaogang3 on 2016/9/25.
  */
 public class MergeTwoSortedLists {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) return l2;
         if (l2 == null) return l1;
@@ -55,7 +45,6 @@ public class MergeTwoSortedLists {
         }
     }
 
-
     public static void main(String[] args) {
         ListNode n1 = new ListNode(1);
         ListNode n2 = new ListNode(2);
@@ -74,5 +63,14 @@ public class MergeTwoSortedLists {
         n5.next = n6;
 
         ListNode res = mergeTwoLists(n1, n31);
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

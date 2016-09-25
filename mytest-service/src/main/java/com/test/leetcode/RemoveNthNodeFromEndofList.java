@@ -5,20 +5,11 @@ package com.test.leetcode;
  */
 public class RemoveNthNodeFromEndofList {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * 快慢指针法
      *
      * @param head
-     * @param n 链表末尾n=1
+     * @param n    链表末尾n=1
      * @return
      */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
@@ -51,7 +42,16 @@ public class RemoveNthNodeFromEndofList {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        ListNode n = removeNthFromEnd(n1,5);
+        ListNode n = removeNthFromEnd(n1, 5);
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
 }

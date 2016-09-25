@@ -15,7 +15,7 @@ public class ValidParentheses {
      * @return
      */
     public static boolean isValid(String s) {
-        if(s == null) return false;
+        if (s == null) return false;
         Stack<Character> stack = new Stack<Character>();
 
         for (int i = 0; i < s.length(); i++) {
