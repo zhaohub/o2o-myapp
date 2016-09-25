@@ -23,11 +23,14 @@ public class ValidParentheses {
             if (stack.size() == 0 && c == '(' || c == '{' || c == '[') {
                 stack.push(c);
             } else if (stack.size() > 0) {
-                int a = Math.abs(stack.peek() - c);
-                if (a == 1 || a == 2) {
-                    stack.pop();
-                } else {
-                    stack.push(c);
+                char p = stack.peek();
+                if (p == '(' || p == '{' || p == '[') {
+                    int a = Math.abs(p - c);
+                    if (a == 1 || a == 2) {
+                        stack.pop();
+                    } else {
+                        stack.push(c);
+                    }
                 }
             }
         }
@@ -36,7 +39,7 @@ public class ValidParentheses {
 
 
     public static void main(String[] args) {
-        String s = ")(";
+        String s = "{)(}";
         System.out.println(isValid(s));
     }
 }
