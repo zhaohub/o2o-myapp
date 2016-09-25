@@ -20,9 +20,9 @@ public class ValidParentheses {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (stack.size() == 0) {
+            if (stack.size() == 0 && c == '(' || c == '{' || c == '[') {
                 stack.push(c);
-            } else {
+            } else if (stack.size() > 0) {
                 int a = Math.abs(stack.peek() - c);
                 if (a == 1 || a == 2) {
                     stack.pop();
@@ -36,7 +36,7 @@ public class ValidParentheses {
 
 
     public static void main(String[] args) {
-        String s = "{()[(])}";
+        String s = ")(";
         System.out.println(isValid(s));
     }
 }
