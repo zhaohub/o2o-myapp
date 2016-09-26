@@ -5,17 +5,8 @@ package com.test.leetcode;
  */
 public class SwapNodesinPairs {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public static ListNode swapPairs(ListNode head) {
-        if(head == null) return null;
+        if (head == null) return null;
 
         ListNode tmp = new ListNode(0);
         tmp.next = head;
@@ -34,7 +25,7 @@ public class SwapNodesinPairs {
     }
 
     public static ListNode swapPairs2(ListNode head) {
-        if(head == null) return null;
+        if (head == null) return null;
 
         ListNode dummy = new ListNode(0);
         dummy.next = head;
@@ -62,5 +53,14 @@ public class SwapNodesinPairs {
         n3.next = n4;
         n4.next = n5;
         ListNode n = swapPairs(n1);
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 }
