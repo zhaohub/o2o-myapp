@@ -6,7 +6,7 @@ package com.test.leetcode;
 public class DivideTwoIntegers {
 
     /**
-     * log(n)
+     * o(n)
      *
      * @param dividend
      * @param divisor
@@ -33,6 +33,12 @@ public class DivideTwoIntegers {
         return sign ? i : -i;
     }
 
+    /**
+     * o(log(n))
+     * @param dividend
+     * @param divisor
+     * @return
+     */
     public static int divide2(int dividend, int divisor) {
         if (divisor == 0)
             throw new ArithmeticException("divied by zero");
