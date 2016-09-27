@@ -19,6 +19,7 @@
         <module>mytest-innerapi</module>
         <module>mytest-worker</module>
         <module>mytest-rpc</module>
+        <module>mytest-domain</module>
     </modules>
 
     <properties>
