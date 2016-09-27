@@ -35,6 +35,7 @@ public class DivideTwoIntegers {
 
     /**
      * o(log(n))
+     *
      * @param dividend
      * @param divisor
      * @return

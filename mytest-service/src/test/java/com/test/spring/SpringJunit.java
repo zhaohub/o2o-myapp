@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class SpringJunit {
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println(111);
     }
 
