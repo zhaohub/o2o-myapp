@@ -42,8 +42,8 @@ public class SubstringwithConcatenationofAllWords {
     }
 
     public static void main(String[] args) {
-        String s = "barfoobarbooman";
-        String[] words = {"oo", "ab"};
+        String s = "baaaooaarbooaan";   // result 1 4 10;
+        String[] words = {"oo", "aa"};
         List<Integer> list = findSubstring(s, words);
     }
 }
