@@ -32,7 +32,7 @@ public class SubstringwithConcatenationofAllWords {
                 }
             }
             //match one word
-             if (list.size() == len && (i - last) == wordLen * (len - 1)) {
+            if (list.size() == len && (i - last) == wordLen * (len - 1)) {
                 res.add(i - wordLen * (len - 1));
                 last = Integer.MAX_VALUE;
                 list.clear();
@@ -42,8 +42,8 @@ public class SubstringwithConcatenationofAllWords {
     }
 
     public static void main(String[] args) {
-        String s = "barfoobooabcboobarbooman";
-        String[] words = {"boo", "abc", "boo"};
+        String s = "barfoobarbooman";
+        String[] words = {"oo", "ab"};
         List<Integer> list = findSubstring(s, words);
     }
 }
