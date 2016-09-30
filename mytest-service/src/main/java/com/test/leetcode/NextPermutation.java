@@ -12,7 +12,7 @@ public class NextPermutation {
             return;
 
         int index = nums.length - 1;
-        while (nums[index - 1] >= nums[index] && index >= 1)
+        while (index >= 1 && nums[index - 1] >= nums[index])
             --index;
 
         if (index == 1) {
@@ -23,15 +23,13 @@ public class NextPermutation {
         int first = index - 1, second = index, i = nums.length - 1;
         do {
             if (nums[i] > nums[first]) {
-                //swap
-                int tmp = nums[first];
+                int tmp = nums[first];  //swap
                 nums[first] = nums[i];
                 nums[i] = tmp;
                 break;
             }
         } while (--i > 0);
-        //sort second to length -1 asc
-        Arrays.sort(nums, second, nums.length);
+        Arrays.sort(nums, second, nums.length);  //sort second to length -1 asc
     }
 
     private static void printArray(int[] array) {
