@@ -30,7 +30,7 @@ public class StringtoInteger {
             str = str.substring(1, str.length());
         }
 
-        int result = 0;
+        long result = 0;
         for (int i = 0; i < str.length(); i++) {
             int c = str.charAt(i) - 48;
             if (c > 10 || c < 0)
@@ -39,7 +39,7 @@ public class StringtoInteger {
             if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE)
                 throw new NumberFormatException("For input string" + str);
         }
-        return negative ? -result : result;
+        return negative ? -(int) result : (int) result;
     }
 
 
