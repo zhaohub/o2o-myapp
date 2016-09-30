@@ -20,23 +20,21 @@ public class ValidParentheses {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (stack.size() == 0 && c == '(' || c == '{' || c == '[') {
+            if (stack.size() == 0 && (c == '(' || c == '{' || c == '[')) {
                 stack.push(c);
             } else if (stack.size() > 0) {
                 char p = stack.peek();
                 if (p == '(' || p == '{' || p == '[') {
                     int a = Math.abs(p - c);
-                    if (a == 1 || a == 2) {
+                    if (a == 1 || a == 2)
                         stack.pop();
-                    } else {
+                    else
                         stack.push(c);
-                    }
                 }
             }
         }
         return stack.size() == 0;
     }
-
 
     public static void main(String[] args) {
         String s = "{)(}";
