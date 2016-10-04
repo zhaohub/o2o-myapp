@@ -19,9 +19,9 @@ public class CountandSay {
             for (int i = 0; i < prev.length(); i++) {
                 int d = prev.charAt(i) - 48;
                 int last = i + 1 < prev.length() ? prev.charAt(i + 1) - 48 : 0;
-                if (d == last) {
+                if (d == last)
                     count[d]++;
-                } else {
+                else {
                     int cn = count[d];
                     sb.append(cn).append(d);
                     count[d] = 1;
