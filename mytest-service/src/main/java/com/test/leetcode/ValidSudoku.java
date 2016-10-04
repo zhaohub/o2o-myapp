@@ -6,7 +6,8 @@ package com.test.leetcode;
 public class ValidSudoku {
 
     public static boolean isValidSudoku(char[][] board) {
-        int[][] times = new int[10][10];
+        int[][] rowTimes = new int[10][10];
+        int[][] colTimes = new int[10][10];
         int[][] subTimes = new int[10][10];
 
         for (int i = 0; i < board.length; i++) {
@@ -14,7 +15,7 @@ public class ValidSudoku {
             for (int j = 0; j < row.length; j++) {
                 if (row[j] != '.') {
                     int d = row[j];
-                    if (++times[i][d] > 1 || ++subTimes[j / 3 + i / 3 * 3][d] > 1)
+                    if (++rowTimes[i][d] > 1 || ++colTimes[j][d] > 1 || ++subTimes[j / 3 + i / 3 * 3][d] > 1)
                         return false;
                 }
             }
@@ -30,7 +31,7 @@ public class ValidSudoku {
                 {8, '.', '.', '.', 6, '.', '.', '.', 3},
                 {4, '.', '.', 8, '.', 3, '.', '.', 1},
                 {7, '.', '.', '.', 2, '.', '.', '.', 6},
-                {'.', 6, '.', '.', '.', '.', 2, 5, '.'},
+                {'.', 6, '.', '.', '.', '.', 2, 8, '.'},
                 {'.', '.', '.', 4, 1, 9, '.', '.', 5},
                 {'.', '.', '.', '.', 8, '.', '.', 7, 9}
         };
