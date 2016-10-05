@@ -71,5 +71,7 @@ public class SudokuSolver {
             }
             System.out.println(sb.toString());
         }
+        //valid sudoku
+        System.out.println(ValidSudoku.isValidSudoku(board));
     }
 }
