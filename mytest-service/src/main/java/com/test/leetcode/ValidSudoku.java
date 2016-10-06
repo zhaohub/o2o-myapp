@@ -6,16 +6,16 @@ package com.test.leetcode;
 public class ValidSudoku {
 
     public static boolean isValidSudoku(char[][] board) {
-        int[][] rowTimes = new int[9][10];
-        int[][] colTimes = new int[9][10];
-        int[][] subTimes = new int[9][10];
+        int[][] rowTimes = new int[10][10];
+        int[][] colTimes = new int[10][10];
+        int[][] subTimes = new int[10][10];
 
         for (int i = 0; i < board.length; i++) {
             char[] row = board[i];
             for (int j = 0; j < row.length; j++) {
                 if (row[j] != '.') {
                     int d = row[j] - 48;
-                    if (++rowTimes[i][d] > 1 || ++colTimes[j][d] > 1 || ++subTimes[j / 3 + i / 3 * 3][d] > 1)
+                    if (d > 0 && (++rowTimes[i][d] > 1 || ++colTimes[j][d] > 1 || ++subTimes[j / 3 + i / 3 * 3][d] > 1))
                         return false;
                 }
             }
