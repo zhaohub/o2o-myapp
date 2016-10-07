@@ -10,7 +10,8 @@ import java.util.List;
  * Created by zhaogang3 on 2016/10/6.
  */
 public class FindAllSudoku {
-    private static char[][] board = new char[10][10];
+
+    private static char[][] board = new char[9][9];  //store sudoku
 
     /**
      * 找出所有数独
@@ -41,7 +42,7 @@ public class FindAllSudoku {
                 }
             }
         } else {
-            char[][] tempBoard = new char[10][10];
+            char[][] tempBoard = new char[9][9];
             for (int r = 0; r < board.length; r++) {
                 tempBoard[r] = Arrays.copyOf(board[r], board[r].length);
             }
@@ -80,7 +81,9 @@ public class FindAllSudoku {
         for (int r = 0; r < board.length; ++r) {
             StringBuilder s = new StringBuilder();
             for (int c = 0; c < board[0].length; ++c) {
-                s.append(board[r][c] + " ");
+                s.append(board[r][c]);
+                if (c != board[0].length - 1)
+                    s.append(" ");
             }
             System.out.println(s.toString());
         }
