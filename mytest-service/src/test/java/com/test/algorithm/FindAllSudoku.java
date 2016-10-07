@@ -3,6 +3,7 @@ package com.test.algorithm;
 import com.test.leetcode.ValidSudoku;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,25 +12,40 @@ import java.util.List;
 public class FindAllSudoku {
     private static char[][] board = new char[10][10];
 
-    private static long count = 0;
+    /**
+     * 找出所有数独
+     *
+     * @return
+     */
+    public static List<char[][]> findAllSudoku(int n) {
+        if (n <= 0) return null;
+        List<char[][]> res = new ArrayList<char[][]>();
+        solve(res, 0, 0, n);
+        return res;
+    }
 
-    public static void solve(List<char[][]> res, int i, int j) {
+    private static void solve(List<char[][]> res, int i, int j, int num) {
+        if (res.size() >= num)   //find num
+            return;
+
         if (i <= 8 && j <= 8) {
             for (char c = '1'; c <= '9'; c++) {
                 if (check(board, i, j, c)) {
                     board[i][j] = c;
                     int t = j;
                     if (++t > 8)
-                        solve(res, i + 1, 0);
+                        solve(res, i + 1, 0, num);
                     else
-                        solve(res, i, t);
+                        solve(res, i, t, num);
                     board[i][j] = '0';
                 }
             }
         } else {
-            //valid
-            if (ValidSudoku.isValidSudoku(board))
-                count++;
+            char[][] tempBoard = new char[10][10];
+            for (int r = 0; r < board.length; r++) {
+                tempBoard[r] = Arrays.copyOf(board[r], board[r].length);
+            }
+            res.add(tempBoard);      //too more board
         }
     }
 
@@ -52,19 +68,15 @@ public class FindAllSudoku {
     }
 
 
-    public static List<char[][]> findAllSudoku() {
-        List<char[][]> res = new ArrayList<char[][]>();
-        solve(res, 0, 0);
-        return res;
-    }
-
     public static void main(String[] args) {
-        List<char[][]> res = findAllSudoku();
-        System.out.println("sudoku count:" + count);
+        List<char[][]> res = findAllSudoku(100);
+        for (int i = 0; i < res.size(); i++) {
+            System.out.println("solution " + (i + 1) + ", valid:" + ValidSudoku.isValidSudoku(res.get(i)));
+            printSudoku(res.get(i));
+        }
     }
 
     private static void printSudoku(char[][] board) {
-        System.out.println("solution " + count++ + ",valid:" + ValidSudoku.isValidSudoku(board));
         for (int r = 0; r < board.length; ++r) {
             StringBuilder s = new StringBuilder();
             for (int c = 0; c < board[0].length; ++c) {
@@ -73,5 +85,4 @@ public class FindAllSudoku {
             System.out.println(s.toString());
         }
     }
-
 }
