@@ -1,6 +1,7 @@
 package com.test.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class CombinationSumIII {
         } else
             for (int i = index; i <= 9; i++) {
                 cmb.add(i);
-                backtracing(res, cmb, k, target - i, i + 1);
+                backtracing(res, cmb, k, target - i, i + 1);  //if last parameter is i,that numbers can repeat in result
                 cmb.remove(cmb.size() - 1);
             }
     }
@@ -48,6 +49,9 @@ public class CombinationSumIII {
 
     public static void main(String[] args) {
         List<List<Integer>> res = combinationSum31(3, 9);
-        res = combinationSum3(3, 9);
+        res = combinationSum3(20, 100);
+        for (List<Integer> list : res) {
+            System.out.println(Arrays.toString(list.toArray()));
+        }
     }
 }
