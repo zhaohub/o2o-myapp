@@ -43,7 +43,7 @@ public class CombinationSumII {
             if (i > 0 && subArray[i] == subArray[i - 1]) continue;
             tmpList.add(tmpList.size(), subArray[i]);
             obtainSubList(res, tmpList, sum - subArray[i], Arrays.copyOfRange(subArray, i + 1, subArray.length));
-            tmpList.remove(tmpList.size() - 1);
+            tmpList.remove(tmpList.size() - 1); //backtrace
         }
     }
 
