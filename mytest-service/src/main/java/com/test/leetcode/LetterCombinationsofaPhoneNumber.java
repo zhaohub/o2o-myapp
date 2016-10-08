@@ -15,7 +15,7 @@ public class LetterCombinationsofaPhoneNumber {
             return null;
         //check digits are all digit?
 
-        String[] buttons = {"︼", "ω", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        String[] buttons = {"︼", "ω", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
         List<String> result = new ArrayList<String>();
         for (int i = 0; i < digits.length(); i++) {
@@ -40,7 +40,7 @@ public class LetterCombinationsofaPhoneNumber {
 
     public static List<String> letterCombinations2(String digits) {
         LinkedList<String> res = new LinkedList<String>();
-        String[] mapping = {"︼", "ω", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        String[] mapping = {"︼", "ω", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
         res.add("");
         for (int i = 0; i < digits.length(); i++) {
             int x = Character.getNumericValue(digits.charAt(i));

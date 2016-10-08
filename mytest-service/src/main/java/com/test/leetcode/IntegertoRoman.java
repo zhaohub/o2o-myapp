@@ -20,10 +20,10 @@ public class IntegertoRoman {
             throw new IllegalArgumentException("exceeds max value");
 
         String c[][] = {
-                {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
-                {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
-                {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
-                {"", "M", "MM", "MMM"}};
+                {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
+                {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
+                {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
+                {"", "M", "MM", "MMM" }};
 
         StringBuilder roman = new StringBuilder();
         roman.append(c[3][num / 1000]);
