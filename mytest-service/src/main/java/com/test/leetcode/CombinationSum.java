@@ -11,17 +11,17 @@ public class CombinationSum {
 
     /**
      * combination sum
-     * @param candidates    must be positive
-     * @param target    must be positive
-     * @return  unique combinations
+     *
+     * @param candidates must be positive
+     * @param target     must be positive
+     * @return unique combinations
      */
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0) return null;
         Arrays.sort(candidates);    //sort candidates
         List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-        int len = candidates.length - 1;
-        for (int i = len; i >= 0; i--) {
+        for (int i = candidates.length - 1; i >= 0; i--) {
             List<Integer> list = new ArrayList<Integer>();
             if (obtainSubList(list, target - candidates[i], Arrays.copyOfRange(candidates, 0, i + 1))) {
                 list.add(candidates[i]);
@@ -55,9 +55,16 @@ public class CombinationSum {
 
     public static void main(String[] args) {
         int[] canidates = {1, 2, 3, 6, 7, 5};
-        List<List<Integer>> res = combinationSum(canidates, 20);
-        //2 6
-        //2 3 3
-        //2 2 2 2
+        List<List<Integer>> res = combinationSum(canidates, 9);
+        if (res != null) {
+            System.out.println("find " + res.size() + " combinations:");
+            for (List<Integer> list : res) {
+                StringBuilder sb = new StringBuilder();
+                for (Integer n : list) {
+                    sb.append(n + " ");
+                }
+                System.out.println(sb.toString());
+            }
+        }
     }
 }
