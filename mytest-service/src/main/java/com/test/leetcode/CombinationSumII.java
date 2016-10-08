@@ -38,13 +38,13 @@ public class CombinationSumII {
         if (sum < 0) return;
         if (sum == 0)
             res.add(new ArrayList<Integer>(tmpList));
-
-        for (int i = 0; i < subArray.length; i++) {
-            if (i > 0 && subArray[i] == subArray[i - 1]) continue;
-            tmpList.add(tmpList.size(), subArray[i]);
-            obtainSubList(res, tmpList, sum - subArray[i], Arrays.copyOfRange(subArray, i + 1, subArray.length));
-            tmpList.remove(tmpList.size() - 1); //backtrace
-        }
+        else
+            for (int i = 0; i < subArray.length; i++) {
+                if (i > 0 && subArray[i] == subArray[i - 1]) continue;
+                tmpList.add(tmpList.size(), subArray[i]);
+                obtainSubList(res, tmpList, sum - subArray[i], Arrays.copyOfRange(subArray, i + 1, subArray.length));
+                tmpList.remove(tmpList.size() - 1); //backtrace
+            }
     }
 
     public static void main(String[] args) {

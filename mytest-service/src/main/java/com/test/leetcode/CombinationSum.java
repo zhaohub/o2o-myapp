@@ -69,12 +69,12 @@ public class CombinationSum {
         if (remain < 0) return;
         if (remain == 0)    //find a combination, add to result
             res.add(new ArrayList<Integer>(tmp));
-
-        for (int i = start; i < candidates.length; i++) {
-            tmp.add(candidates[i]);
-            backtrace(res, tmp, candidates, start, remain - candidates[i]);
-            tmp.remove(tmp.size() - 1);   //remove current visited node,turn to sibling node
-        }
+        else
+            for (int i = start; i < candidates.length; i++) {
+                tmp.add(candidates[i]);
+                backtrace(res, tmp, candidates, start, remain - candidates[i]);
+                tmp.remove(tmp.size() - 1);   //remove current visited node,turn to sibling node
+            }
     }
 
     private static void printResult(List<List<Integer>> res) {
