@@ -33,6 +33,7 @@ public class CombinationSum {
 
     /**
      * obtain sub list
+     * may count less
      *
      * @param res
      * @param sum
@@ -53,9 +54,30 @@ public class CombinationSum {
         return false;
     }
 
-    public static void main(String[] args) {
-        int[] canidates = {1, 2, 3, 6, 7, 5};
-        List<List<Integer>> res = combinationSum(canidates, 9);
+
+    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        if (candidates == null || candidates.length == 0) return null;
+
+        Arrays.sort(candidates);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        //dfs
+        backtrace(res, new ArrayList<Integer>(), candidates, 0, target);
+        return res;
+    }
+
+    private static void backtrace(List<List<Integer>> res, ArrayList<Integer> tmp, int[] candidates, int start, int remain) {
+        if (remain < 0) return;
+        if (remain == 0)
+            res.add(new ArrayList<Integer>(tmp));
+
+        for (int i = start; i < candidates.length; i++) {
+            tmp.add(candidates[i]);
+            backtrace(res, tmp, candidates, start, remain - candidates[i]);
+            tmp.remove(tmp.size() - 1);
+        }
+    }
+
+    private static void printResult(List<List<Integer>> res){
         if (res != null) {
             System.out.println("find " + res.size() + " combinations:");
             for (List<Integer> list : res) {
@@ -66,5 +88,11 @@ public class CombinationSum {
                 System.out.println(sb.toString());
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] canidates = {1, 2, 3, 6, 7, 5};
+        printResult(combinationSum2(canidates, 9));
+        printResult(combinationSum(canidates,9));
     }
 }
