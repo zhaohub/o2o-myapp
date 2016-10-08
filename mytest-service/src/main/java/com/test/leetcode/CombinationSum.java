@@ -60,32 +60,28 @@ public class CombinationSum {
 
         Arrays.sort(candidates);
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        //dfs
+        //dfs solution
         backtrace(res, new ArrayList<Integer>(), candidates, 0, target);
         return res;
     }
 
     private static void backtrace(List<List<Integer>> res, ArrayList<Integer> tmp, int[] candidates, int start, int remain) {
         if (remain < 0) return;
-        if (remain == 0)
+        if (remain == 0)    //find a combination, add to result
             res.add(new ArrayList<Integer>(tmp));
 
         for (int i = start; i < candidates.length; i++) {
             tmp.add(candidates[i]);
             backtrace(res, tmp, candidates, start, remain - candidates[i]);
-            tmp.remove(tmp.size() - 1);
+            tmp.remove(tmp.size() - 1);   //remove current visited node,turn to sibling node
         }
     }
 
-    private static void printResult(List<List<Integer>> res){
+    private static void printResult(List<List<Integer>> res) {
         if (res != null) {
             System.out.println("find " + res.size() + " combinations:");
             for (List<Integer> list : res) {
-                StringBuilder sb = new StringBuilder();
-                for (Integer n : list) {
-                    sb.append(n + " ");
-                }
-                System.out.println(sb.toString());
+                System.out.println(Arrays.toString(list.toArray()));
             }
         }
     }
@@ -93,6 +89,6 @@ public class CombinationSum {
     public static void main(String[] args) {
         int[] canidates = {1, 2, 3, 6, 7, 5};
         printResult(combinationSum2(canidates, 9));
-        printResult(combinationSum(canidates,9));
+        printResult(combinationSum(canidates, 9));
     }
 }
