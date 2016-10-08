@@ -9,9 +9,15 @@ import java.util.List;
  */
 public class CombinationSum {
 
+    /**
+     * combination sum
+     * @param candidates    must be positive
+     * @param target    must be positive
+     * @return  unique combinations
+     */
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0) return null;
-        Arrays.sort(candidates);
+        Arrays.sort(candidates);    //sort candidates
         List<List<Integer>> res = new ArrayList<List<Integer>>();
 
         int len = candidates.length - 1;
@@ -19,12 +25,20 @@ public class CombinationSum {
             List<Integer> list = new ArrayList<Integer>();
             if (obtainSubList(list, target - candidates[i], Arrays.copyOfRange(candidates, 0, i + 1))) {
                 list.add(candidates[i]);
-                res.add(list);
+                res.add(list);  //find a sum list,add to result
             }
         }
         return res;
     }
 
+    /**
+     * obtain sub list
+     *
+     * @param res
+     * @param sum
+     * @param subArray
+     * @return
+     */
     private static boolean obtainSubList(List<Integer> res, int sum, int[] subArray) {
         if (subArray == null || subArray.length == 0)
             return false;
@@ -40,8 +54,8 @@ public class CombinationSum {
     }
 
     public static void main(String[] args) {
-        int[] canidates = {2, 3, 6, 7};
-        List<List<Integer>> res = combinationSum(canidates, 8);
+        int[] canidates = {1, 2, 3, 6, 7, 5};
+        List<List<Integer>> res = combinationSum(canidates, 20);
         //2 6
         //2 3 3
         //2 2 2 2
