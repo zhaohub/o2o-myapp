@@ -29,7 +29,7 @@ public class CombinationSumIII {
         } else
             for (int i = index; i <= 9; i++) {
                 cmb.add(i);
-                backtracing(res, cmb, k, target - i, i + 1);  //if last parameter is i,that numbers can repeat in result
+                backtracing(res, cmb, k, target - i, i + 1);  //if last parameter is i,that numbers can repeat any times in result
                 cmb.remove(cmb.size() - 1);
             }
     }
