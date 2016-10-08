@@ -2,8 +2,6 @@ package com.test.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by zhaogang3 on 2016/10/8.
@@ -14,19 +12,18 @@ public class CombinationSumIV {
         if (nums == null || nums.length == 0) return 0;
 
         Arrays.sort(nums);
-        Map<String, Integer> map = new HashMap();
-        map.put("size", 0);
-        backtrace(map, new ArrayList<Integer>(), nums, 0, target);
-        return map.get("size");
+        int[] res = {0};
+        backtrace(res, new ArrayList<Integer>(), nums, 0, target);
+        return res[0];
     }
 
-    private static void backtrace(Map<String, Integer> map, ArrayList<Integer> tmp, int[] nums, int start, int target) {
+    private static void backtrace(int[] res, ArrayList<Integer> tmp, int[] nums, int start, int target) {
         if (target < 0) return;
-        if (target == 0) map.put("size", map.get("size") + 1);
+        if (target == 0) res[0]++;
 
         for (int i = start; i < nums.length; i++) {
             tmp.add(nums[i]);
-            backtrace(map, tmp, nums, start, target - nums[i]);
+            backtrace(res, tmp, nums, start, target - nums[i]);
             tmp.remove(tmp.size() - 1);
         }
     }
