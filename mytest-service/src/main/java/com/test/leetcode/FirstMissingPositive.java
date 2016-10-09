@@ -34,13 +34,11 @@ public class FirstMissingPositive {
             sum += j;
         }
 
-        int res = 0;
         if (sum - innerSum > 0)
-            res = sum - innerSum;
+            return sum - innerSum;
         else if (sum - innerSum == 0)
-            res = min == 1 ? max + 1 : 1;
-
-        return res;
+            return min == 1 ? max + 1 : 1;
+        return -1;
     }
 
     public static void main(String[] args) {
