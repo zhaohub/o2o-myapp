@@ -36,6 +36,7 @@ public class CombinationSumII {
      */
     private static void obtainSubList(List<List<Integer>> res, List<Integer> tmpList, int sum, int[] subArray) {
         if (sum < 0) return;
+
         if (sum == 0)
             res.add(new ArrayList<Integer>(tmpList));
         else

@@ -24,6 +24,7 @@ public class CombinationSumIII {
 
     private static void backtracing(List<List<Integer>> res, List<Integer> cmb, int k, int target, int index) {
         if (target < 0) return;
+
         if (target == 0 && cmb.size() == k) {
             res.add(new ArrayList<Integer>(cmb));
         } else

@@ -19,13 +19,15 @@ public class CombinationSumIV {
 
     private static void backtrace(int[] res, ArrayList<Integer> tmp, int[] nums, int start, int target) {
         if (target < 0) return;
-        if (target == 0) res[0]++;
 
-        for (int i = start; i < nums.length; i++) {
-            tmp.add(nums[i]);
-            backtrace(res, tmp, nums, start, target - nums[i]);
-            tmp.remove(tmp.size() - 1);
-        }
+        if (target == 0)
+            res[0]++;
+        else
+            for (int i = start; i < nums.length; i++) {
+                tmp.add(nums[i]);
+                backtrace(res, tmp, nums, start, target - nums[i]);
+                tmp.remove(tmp.size() - 1);
+            }
     }
 
     /**
@@ -39,6 +41,7 @@ public class CombinationSumIV {
         if (target == 0) {
             return 1;
         }
+
         int res = 0;
         for (int i = 0; i < nums.length; i++) {
             if (target >= nums[i]) {

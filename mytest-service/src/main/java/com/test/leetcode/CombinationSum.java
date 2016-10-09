@@ -67,6 +67,7 @@ public class CombinationSum {
 
     private static void backtrace(List<List<Integer>> res, ArrayList<Integer> tmp, int[] candidates, int start, int remain) {
         if (remain < 0) return;
+
         if (remain == 0)    //find a combination, add to result
             res.add(new ArrayList<Integer>(tmp));
         else
