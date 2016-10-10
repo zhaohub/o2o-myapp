@@ -41,10 +41,31 @@ public class FirstMissingPositive {
         return -1;
     }
 
+
+    //The basic idea is for any k positive numbers (duplicates allowed), the first missing positive number must be within [1,k+1].
+    public static int firstMissingPositive2(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            int d = nums[i];
+            while (d <= len && d > 0 && nums[d - 1] != d) {
+                int t = nums[i];
+                nums[i] = nums[d - 1];
+                nums[d - 1] = t;
+                d = nums[i];
+            }
+        }
+
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1)
+                return i + 1;
+        }
+        return len + 1;
+    }
+
     public static void main(String[] args) {
         int[] nums = {3, -1, 3, -1, 3, 4, 5, 0, 1, 2, 5};
         int[] nums1 = {3, 4, -1, 1};
-        System.out.println(firstMissingPositive(nums));
+        System.out.println(firstMissingPositive2(nums));
     }
 
 }
