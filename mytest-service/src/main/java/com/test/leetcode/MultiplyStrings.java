@@ -47,8 +47,8 @@ public class MultiplyStrings {
     }
 
     public static void main(String[] args) {
-        String s1 = "000087649279242394729347382084023843000000";
-        String s2 = "0000190279342394732300000000";
+        String s1 = "999999990000876492792423947293473820840238430000009999999999999999999";
+        String s2 = "10000190279342394732300000000";
         System.out.println(multiply(s1, s2));
         System.out.println(new BigInteger(s1).multiply(new BigInteger(s2)));
     }
