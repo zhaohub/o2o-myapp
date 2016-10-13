@@ -31,6 +31,6 @@ public class RegularExpressionMatching {
     }
 
     public static void main(String[] args) {
-        System.out.println(isMatch("abcbcd", "a.*c.*d"));
+        System.out.println(isMatch("abcbcd", "*c.*d"));
     }
 }
