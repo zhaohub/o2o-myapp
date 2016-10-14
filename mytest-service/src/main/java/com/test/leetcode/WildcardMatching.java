@@ -40,7 +40,7 @@ public class WildcardMatching {
     public static boolean isMatch2(String s, String p) {
         int sp = 0, pp = 0, match = 0, startId = -1;
         while (sp < s.length()) {
-            if (pp < p.length() && (s.charAt(sp) == p.charAt(pp) || p.charAt(pp) == '?')) {
+            if (pp < p.length() && (p.charAt(pp) == '?' || (s.charAt(sp) == p.charAt(pp) && p.charAt(pp) != '*'))) {
                 sp++;
                 pp++;
             } else if (pp < p.length() && p.charAt(pp) == '*') {
@@ -64,6 +64,6 @@ public class WildcardMatching {
     public static void main(String[] args) {
         //System.out.println(isMatch("aeuwyetur", "?*uuu"));
         //System.out.println(isMatch("abmdddnc", "ab*c"));
-        System.out.println(isMatch2("abmdddncqqqqq", "ab*cq***"));
+        System.out.println(isMatch2("ab*cdec", "ab*c"));
     }
 }
