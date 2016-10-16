@@ -36,9 +36,29 @@ public class GroupAnagrams {
         return res;
     }
 
+    public static List<List<String>> groupAnagrams2(String[] strs) {
+        if (strs == null || strs.length == 0) return null;
+
+        Map<String, List<String>> res = new HashMap<String, List<String>>();
+
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = Arrays.toString(chars);
+            if (res.containsKey(key))
+                res.get(key).add(s);
+            else {
+                List<String> list = new ArrayList<String>();
+                list.add(s);
+                res.put(key, list);
+            }
+        }
+        return new ArrayList<List<String>>(res.values());
+    }
+
     public static void main(String[] args) {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> res = groupAnagrams(strs);
+        List<List<String>> res = groupAnagrams2(strs);
         for (List<String> list : res) {
             System.out.println(Arrays.toString(list.toArray()));
         }
