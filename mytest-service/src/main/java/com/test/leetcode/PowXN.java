@@ -10,8 +10,8 @@ public class PowXN {
 
         int t = 2, tn = n;
         n = Math.abs(n);
-        double tx = x;
         if (n >= 2) {
+            double tx = x;
             while (t <= n) {
                 x = x * x;
                 t = t << 1;
