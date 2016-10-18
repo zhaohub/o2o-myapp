@@ -14,22 +14,17 @@ public class LargestRectangleinHistogram {
         int n = heights.length, i = 0, maxArea = 0;
         while (i < n) {
             if (stack.empty() || heights[i] >= heights[stack.peek()])
-                stack.push(i);
+                stack.push(i++);
             else {
-                int top = 0;
-                while (!stack.empty() && heights[stack.peek()] > heights[i]) {
-                    top = stack.pop();
-                }
-                stack.push(i);
-                int area = heights[top] * (i - top);
+                int top = stack.pop();
+                int area = heights[top] * (stack.empty() ? i : i - stack.peek() - 1);
                 maxArea = maxArea > area ? maxArea : area;
             }
-            i++;
         }
 
         while (!stack.empty()) {
             int top = stack.pop();
-            int area = heights[top - 1] * (i - top - 1);
+            int area = heights[top] * (stack.empty() ? i : i - stack.peek() - 1);
             maxArea = maxArea > area ? maxArea : area;
         }
 
