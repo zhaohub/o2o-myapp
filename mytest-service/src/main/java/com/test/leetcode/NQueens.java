@@ -55,5 +55,12 @@ public class NQueens {
 
     public static void main(String[] args) {
         List<List<String>> res = solveNQueens(8);
+
+        for (int i = 0; i < res.size(); i++) {
+            System.out.println("solution " + (i + 1));
+            for (int j = 0; j < res.get(i).size(); j++) {
+                System.out.println(res.get(i).get(j));
+            }
+        }
     }
 }
