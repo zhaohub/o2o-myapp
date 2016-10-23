@@ -18,14 +18,15 @@ public class SpiralMatrix {
         };
 
         int x = 0, y = 0, c = 0;
+        boolean flag = true;
         List<Integer> res = new ArrayList<Integer>();
-        for (int i = 0, j = 0; ; i++, j++) {
+        for (int i = 0, j = 0; flag; i++, j++) {
             i = i % 4;  //direction
             if (j / 4 > c) {    //circle
                 c = j / 4;
                 x = y = c;
             }
-            while (res.size() != matrix.length * matrix[0].length) {
+            while (true) {
                 if (i == 0 && y >= matrix[x].length - c - 1) {
                     y = matrix[x].length - c - 1;
                     break;
@@ -36,13 +37,14 @@ public class SpiralMatrix {
                 }
                 if ((i == 2 && y == c) || (i == 3 && x == c)) break;
 
+                if (res.size() == matrix.length * matrix[0].length) {
+                    flag = false;
+                    break;
+                }
                 res.add(matrix[x][y]);
                 x += direction[i][0];
                 y += direction[i][1];
             }
-
-            if (res.size() == matrix.length * matrix[0].length)
-                break;
         }
         return res;
     }
@@ -66,7 +68,7 @@ public class SpiralMatrix {
 
         int[][] mb = {{1, 2, 3, 4, 5}};
 
-        List<Integer> res = spiralOrder(ma);
+        List<Integer> res = spiralOrder(matrix);
         System.out.println(Arrays.toString(res.toArray()));
     }
 }
