@@ -42,7 +42,7 @@ public class SpiralMatrix {
                     break;
                 }
                 res.add(matrix[x][y]);
-                x += direction[i][0];
+                x += direction[i][0];   //move
                 y += direction[i][1];
             }
         }
