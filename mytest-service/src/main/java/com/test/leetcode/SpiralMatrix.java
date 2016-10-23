@@ -20,12 +20,11 @@ public class SpiralMatrix {
         int x = 0, y = 0, c = 0;
         List<Integer> res = new ArrayList<Integer>();
         for (int i = 0, j = 0; ; i++, j++) {
-            if (j / 4 > c) {
+            i = i % 4;  //direction
+            if (j / 4 > c) {    //circle
                 c = j / 4;
-                x = c;
-                y = c;
+                x = y = c;
             }
-            i = i % 4;
             while (res.size() != matrix.length * matrix[0].length) {
                 if (i == 0 && y >= matrix[x].length - c - 1) {
                     y = matrix[x].length - c - 1;
@@ -35,8 +34,7 @@ public class SpiralMatrix {
                     x = matrix.length - c - 1;
                     break;
                 }
-                if (i == 2 && y == c) break;
-                if (i == 3 && x == c) break;
+                if ((i == 2 && y == c) || (i == 3 && x == c)) break;
 
                 res.add(matrix[x][y]);
                 x += direction[i][0];
