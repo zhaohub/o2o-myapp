@@ -22,27 +22,45 @@ public class MergeIntervals {
             }
         });
 
+        return mergeIntervals(intervals);
+    }
+
+    public static boolean hasIntervals(List<Interval> intervals) {
+        Interval pre = intervals.get(0);
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval cur = intervals.get(i);
+            if (pre.getEnd() >= cur.getStart())
+                return true;
+
+        }
+        return false;
+    }
+
+    public static List<Interval> mergeIntervals(List<Interval> intervals) {
         List<Interval> res = new ArrayList<Interval>();
+
+        if (!hasIntervals(intervals))
+            return intervals;
 
         Interval pre = intervals.get(0);
         for (int i = 1; i < intervals.size(); i++) {
             Interval cur = intervals.get(i);
-            if (pre.getEnd() >= cur.getStart()) {
-                Interval t = new Interval(pre.getStart(), cur.getEnd());
-                res.add(t);
+            Interval t;
+            if (pre.getEnd() >= cur.getStart() && pre.getEnd() < cur.getEnd()) {
+                t = new Interval(pre.getStart(), cur.getEnd());
+            } else if (pre.getEnd() >= cur.getStart() && pre.getEnd() >= cur.getEnd()) {
+                t = new Interval(pre.getStart(), pre.getEnd());
             } else {
-                Interval tt = new Interval(cur.getStart(), cur.getEnd());
-                res.add(tt);
+                t = new Interval(cur.getStart(), cur.getEnd());
             }
+            res.add(t);
             pre = cur;
         }
-
-        return res;
+        return mergeIntervals(res);
     }
 
-
     public static void main(String[] args) {
-        Interval i1 = new Interval(1, 3);
+        Interval i1 = new Interval(1, 11);
         Interval i2 = new Interval(2, 6);
         Interval i3 = new Interval(8, 10);
         Interval i4 = new Interval(15, 18);
@@ -52,7 +70,6 @@ public class MergeIntervals {
         is.add(i1);
         is.add(i2);
         is.add(i3);
-
 
         List<Interval> res = merge(is);
     }
