@@ -72,6 +72,9 @@ public class MergeIntervals {
         is.add(i3);
 
         List<Interval> res = merge(is);
+        for (Interval t : res) {
+            System.out.println(t);
+        }
     }
 }
 
@@ -99,4 +102,8 @@ class Interval {
         return end;
     }
 
+    @Override
+    public String toString() {
+        return "[" + start + "," + end + "]";
+    }
 }
