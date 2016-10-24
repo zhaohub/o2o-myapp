@@ -76,7 +76,7 @@ public class MergeIntervals {
 }
 
 class Interval {
-    int start;
+    int start;  //start must lower than end
     int end;
 
     Interval() {
@@ -85,6 +85,8 @@ class Interval {
     }
 
     Interval(int s, int e) {
+        if (s >= e)
+            throw new IllegalArgumentException("start must lower than end");
         start = s;
         end = e;
     }
