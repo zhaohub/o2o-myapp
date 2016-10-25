@@ -76,34 +76,37 @@ public class MergeIntervals {
             System.out.println(t);
         }
     }
+
+
+    static class Interval {
+        int start;  //start must lower than end
+        int end;
+
+        Interval() {
+            start = 0;
+            end = 0;
+        }
+
+        Interval(int s, int e) {
+            if (s >= e)
+                throw new IllegalArgumentException("start must lower than end");
+            start = s;
+            end = e;
+        }
+
+        public int getStart() {
+            return start;
+        }
+
+        public int getEnd() {
+            return end;
+        }
+
+        @Override
+        public String toString() {
+            return "[" + start + "," + end + "]";
+        }
+    }
 }
 
-class Interval {
-    int start;  //start must lower than end
-    int end;
 
-    Interval() {
-        start = 0;
-        end = 0;
-    }
-
-    Interval(int s, int e) {
-        if (s >= e)
-            throw new IllegalArgumentException("start must lower than end");
-        start = s;
-        end = e;
-    }
-
-    public int getStart() {
-        return start;
-    }
-
-    public int getEnd() {
-        return end;
-    }
-
-    @Override
-    public String toString() {
-        return "[" + start + "," + end + "]";
-    }
-}
