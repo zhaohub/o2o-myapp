@@ -36,8 +36,29 @@ public class PermutationSequence {
             }
     }
 
+    public static String getPermutation0(int n, int k) {
+        List<Integer> nums = new ArrayList<Integer>();
+        StringBuilder sb = new StringBuilder();
+        int[] fac = new int[n];
+        fac[0] = 1;
+        for (int i = 1; i < n; i++) {
+            fac[i] = i * fac[i - 1];
+            nums.add(i);
+        }
+        nums.add(n);
+        k = k - 1;
+        for (int i = 1; i <= n; i++) {
+            int index = k / fac[n - i];
+            sb.append(nums.get(index));
+            nums.remove(index);
+            k -= index * fac[n - i];
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        System.out.println(getPermutation(4, 24));
+        System.out.println(getPermutation(4, 14));
+        System.out.println(getPermutation0(9, 100000));
     }
 
 }
