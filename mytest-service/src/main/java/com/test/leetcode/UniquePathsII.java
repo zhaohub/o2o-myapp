@@ -80,10 +80,24 @@ public class UniquePathsII {
                 {0, 1, 0, 0, 0, 1},
                 {0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0},
+                {1, 1, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 1, 0, 0}
         };
+        long start = System.currentTimeMillis();
         System.out.println(uniquePathsWithObstacles(grid));
+        long end = System.currentTimeMillis();
+        System.out.println("dfs time cosume:" + (end - start));
+        start = System.currentTimeMillis();
         System.out.println(uniquePathsWithObstacles2(grid));
+        end = System.currentTimeMillis();
+        System.out.println("mn time cosume:" + (end - start));
     }
 
 }
