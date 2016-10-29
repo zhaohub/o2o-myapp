@@ -16,8 +16,7 @@ public class AddBinary {
         int t = an - bn;
         boolean c = false;
         String res = "";
-        for (int i = an - 1; i >= 0; i--) {
-            if (i < t) break;
+        for (int i = an - 1; i >= t; i--) {
             if (a.charAt(i) == '1' && b.charAt(i - t) == '1') {
                 res = (c ? "1" : "0") + res;
                 c = true;
@@ -32,26 +31,20 @@ public class AddBinary {
         if (c) {
             String tmp = "";
             for (int i = t - 1; i >= 0; i--) {
-                if (a.charAt(i) < '1') {
+                if (a.charAt(i) == '0') {
                     tmp = "1" + tmp;
-                    break;
+                    return a.substring(0, t - 1) + tmp + res;
                 }
                 tmp = "0" + tmp;
             }
-            tmp = "1" + tmp;
-            res = tmp + res;
-        } else {
-            res = a.substring(0, t) + res;
+            return "1" + tmp + res;
         }
-
-        return res;
+        return a.substring(0, t) + res;
     }
 
     public static void main(String[] args) {
-        String b = "11011011";
+        String b = "111011011";
         String a = "1000010";
         System.out.println(addBinary(a, b));
-
     }
-
 }
