@@ -33,7 +33,7 @@ public class AddBinary {
             for (int i = t - 1; i >= 0; i--) {
                 if (a.charAt(i) == '0') {
                     tmp = "1" + tmp;
-                    return a.substring(0, t - 1) + tmp + res;
+                    return a.substring(0, i) + tmp + res;
                 }
                 tmp = "0" + tmp;
             }
@@ -43,7 +43,7 @@ public class AddBinary {
     }
 
     public static void main(String[] args) {
-        String b = "111011011";
+        String b = "1011011011";
         String a = "1000010";
         System.out.println(addBinary(a, b));
     }
