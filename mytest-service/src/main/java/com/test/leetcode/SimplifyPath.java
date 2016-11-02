@@ -20,11 +20,11 @@ public class SimplifyPath {
             char c = path.charAt(i);
             if (c == '/') {
                 while (true) {
-                    if (i < n - 1 && path.charAt(++i) != '/') {
+                    if (i == n - 1) break;
+                    if (path.charAt(++i) != '/') {
                         i = i - 1;
                         break;
-                    } else if (i >= n - 1)
-                        break;
+                    }
                 }
             }
             sb.append(c);
@@ -32,11 +32,12 @@ public class SimplifyPath {
 
         if (sb.charAt(0) != '/')
             sb.insert(0, '/');
+        if (sb.charAt(sb.length() - 1) != '/')
+            sb.insert(sb.length(), '/');
 
         int pre = 0, i = 1;
         while (i < n) {
-            n = sb.length();
-            if (i < n - 1 && sb.charAt(i) == '/') {
+            if (sb.charAt(i) == '/') {
                 String sub = sb.substring(pre + 1, i);
                 if (".".equals(sub)) {
                     sb.delete(pre + 1, i + 1);
@@ -59,16 +60,17 @@ public class SimplifyPath {
                 pre = i;
             }
             i++;
+            n = sb.length();
         }
 
-        if (sb.charAt(sb.length() - 1) == '/')
+        if (sb.length() > 1 && sb.charAt(sb.length() - 1) == '/')
             sb.deleteCharAt(sb.length() - 1);
 
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(simplifyPath("////home/"));
-        System.out.println(simplifyPath("/a///.///b/../../c/"));
+        //System.out.println(simplifyPath("////home/hj"));
+        System.out.println(simplifyPath("/c/../b//./"));
     }
 }
