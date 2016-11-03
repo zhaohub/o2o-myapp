@@ -5,6 +5,13 @@ package com.test.leetcode;
  */
 public class Searcha2dMatrix {
 
+    /**
+     * 这种方法与把矩阵当成一个数组的时间复杂度一致
+     *
+     * @param matrix
+     * @param target
+     * @return
+     */
     public static boolean searchMatrix(int[][] matrix, int target) {
 
         int l = 0, h = matrix.length - 1, line;
@@ -36,6 +43,25 @@ public class Searcha2dMatrix {
         return false;
     }
 
+    public static boolean searchMatrix1(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0)
+            return false;
+
+        int m = matrix.length, n = matrix[0].length;
+        int l = 0, h = m * n - 1;
+        while (l <= h) {
+            int mid = l + (h - l) / 2;
+            int val = matrix[mid / n][mid % m];
+            if (target < val)
+                h = mid - 1;
+            else if (target > val)
+                l = mid + 1;
+            else
+                return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int[][] matrix = {
                 {1, 3, 5, 7},
@@ -44,6 +70,7 @@ public class Searcha2dMatrix {
                 {51, 53, 55, 60}
         };
 
-        System.out.println(searchMatrix(matrix, 12));
+        System.out.println(searchMatrix(matrix, 60));
+        System.out.println(searchMatrix1(matrix, 60));
     }
 }
