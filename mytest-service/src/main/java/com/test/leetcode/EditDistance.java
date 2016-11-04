@@ -28,10 +28,33 @@ public class EditDistance {
         return dp[m][n];
     }
 
+    public static int minDistance1(String word1, String word2) {
+        int m = word1.length();
+        int n = word2.length();
+
+        int[] col0 = new int[m + 1];
+        for (int i = 1; i <= m; i++)
+            col0[i] = i;
+
+        for (int j = 1; j <= n; j++) {
+            int pre = col0[0];
+            col0[0] = j;
+            for (int i = 1; i <= m; i++) {
+                int t = col0[i];
+                if (word1.charAt(i - 1) == word2.charAt(j - 1))
+                    col0[i] = pre;
+                else
+                    col0[i] = Math.min(pre + 1, Math.min(col0[i] + 1, col0[i - 1] + 1));
+                pre = t;
+            }
+        }
+        return col0[m];
+    }
+
     public static void main(String[] args) {
         String word1 = "eeba";
         String word2 = "abca";
-        System.out.println(minDistance(word1, word2));
+        System.out.println(minDistance1(word1, word2));
     }
 
 }
