@@ -18,7 +18,7 @@ public class Combinations {
         while (i >= 0) {
             p[i]++;
             if (p[i] > n) --i;
-            else if (i == k - 1) res.add(Arrays.asList(p));
+            else if (i == k - 1) res.add(new ArrayList<Integer>(Arrays.asList(p)));
             else {
                 ++i;
                 p[i] = p[i - 1];
