@@ -27,7 +27,33 @@ public class Combinations {
         return res;
     }
 
+    /**
+     * backtrace solution
+     *
+     * @param n
+     * @param k
+     * @return
+     */
+    public static List<List<Integer>> combine1(int n, int k) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        backtrace(res, new ArrayList<Integer>(), k, n, 1);
+        return res;
+    }
+
+    private static void backtrace(List<List<Integer>> res, ArrayList<Integer> temp, int k, int n, int j) {
+        if (temp.size() == k)
+            res.add(new ArrayList<Integer>(temp));
+        else {
+            for (int i = j; i <= n; i++) {
+                temp.add(i);
+                backtrace(res, temp, k, n, i + 1);
+                temp.remove(temp.size() - 1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        List<List<Integer>> res = combine(4, 3);
+        List<List<Integer>> res = combine1(4, 2);
+        List<List<Integer>> res1 = combine1(4, 2);
     }
 }
