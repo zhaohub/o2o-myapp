@@ -28,6 +28,6 @@ public class Combinations {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> res = combine(4, 2);
+        List<List<Integer>> res = combine(4, 3);
     }
 }
