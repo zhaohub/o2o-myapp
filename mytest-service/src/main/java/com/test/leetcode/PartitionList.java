@@ -21,15 +21,16 @@ public class PartitionList {
         ListNode highPre = new ListNode(0), highHead = highPre;
         while (cur != null) {
             if (cur.val < x) {
-                lowPre.next = new ListNode(cur.val);
+                lowPre.next = cur;
                 lowPre = lowPre.next;
             } else {
-                highPre.next = new ListNode(cur.val);
+                highPre.next = cur;
                 highPre = highPre.next;
             }
             cur = cur.next;
         }
         lowPre.next = highHead.next;
+        highPre.next = null;
         return lowHead.next;
     }
 
