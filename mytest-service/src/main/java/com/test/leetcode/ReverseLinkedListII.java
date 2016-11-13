@@ -21,11 +21,11 @@ public class ReverseLinkedListII {
         int i = 1;
         while (cur != null) {
             ListNode t = cur, tNext = cur.next;
-            if (i == m - 1)
-                subPre = cur;
-            if (i == m)
+
+            if (i == m) {
+                subPre = pre;
                 last = cur;
-            else if (i > m && i <= n) {  //reverse nodes
+            } else if (i > m && i <= n) {  //reverse nodes
                 sub.next = cur;
                 cur.next = pre;
             } else if (i == n + 1) {
