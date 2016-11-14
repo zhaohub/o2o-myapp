@@ -1,5 +1,7 @@
 package com.test.leetcode;
 
+import java.util.List;
+
 /**
  * Created by zhaogang3 on 2016/11/13.
  */
@@ -56,6 +58,11 @@ public class ReverseLinkedListII {
         n4.next = n5;
         n5.next = n6;
         n6.next = n7;
-        ListNode n = reverseBetween(n1, 1, 2);
+        //ListNode n = reverseBetween(n1, 1, 2);
+
+        List<Integer> list = null;
+        for(Integer i:list){
+            System.out.println(i);
+        }
     }
 }
