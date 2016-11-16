@@ -60,7 +60,39 @@ public class UniqueBinarySearchTreesII {
         return root;
     }
 
+
+    public static List<TreeNode> generateTrees1(int n) {
+        return genTrees(1, n);
+    }
+
+    private static List<TreeNode> genTrees(int start, int end) {
+        List<TreeNode> res = new ArrayList<TreeNode>();
+        if (start > end) {
+            res.add(null);
+            return res;
+        }
+        if (start == end) {
+            res.add(new TreeNode(start));
+            return res;
+        }
+        List<TreeNode> left, right;
+        for (int i = start; i <= end; i++) {
+            left = genTrees(start, i - 1);
+            right = genTrees(i + 1, end);
+
+            for (TreeNode lnode : left) {
+                for (TreeNode rnode : right) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = lnode;
+                    root.right = rnode;
+                    res.add(root);
+                }
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        List<TreeNode> res = generateTrees(3);
+        List<TreeNode> res = generateTrees1(3);
     }
 }
