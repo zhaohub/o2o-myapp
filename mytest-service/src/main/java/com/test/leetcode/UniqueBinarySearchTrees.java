@@ -21,6 +21,6 @@ public class UniqueBinarySearchTrees {
     }
 
     public static void main(String[] args) {
-        System.out.println(numTrees(0));
+        System.out.println(numTrees(5));
     }
 }
