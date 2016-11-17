@@ -6,6 +6,7 @@ package com.test.leetcode;
 public class UniqueBinarySearchTrees {
 
     public static int numTrees(int n) {
+        if (n <= 0) return 0;
 
         int[] g = new int[n + 1];
         g[0] = g[1] = 1;
@@ -20,7 +21,6 @@ public class UniqueBinarySearchTrees {
     }
 
     public static void main(String[] args) {
-        System.out.println(numTrees(3));
+        System.out.println(numTrees(0));
     }
-
 }
