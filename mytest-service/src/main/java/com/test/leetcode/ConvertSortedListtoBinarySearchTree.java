@@ -35,7 +35,7 @@ public class ConvertSortedListtoBinarySearchTree {
 
         if (head == tail) return null;
 
-        while (fast != tail && fast.next != tail) {
+        while (fast != tail && fast.next != tail) {  //search the middle node
             fast = fast.next.next;
             slow = slow.next;
         }
