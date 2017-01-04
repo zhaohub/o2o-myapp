@@ -69,6 +69,4 @@ public class ConvertSortedListtoBinarySearchTree {
         n9.next = n10;
         TreeNode tree = sortedListToBST(n1);
     }
-
-
 }
