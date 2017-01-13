@@ -5,21 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jd.o2o</groupId>
-    <artifactId>mytest</artifactId>
+    <artifactId>myapp</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>My own study project in java</description>
-    <name>mytest</name>
+    <name>myapp</name>
 
     <modules>
-        <module>mytest-service</module>
-        <module>mytest-api</module>
-        <module>mytest-web</module>
-        <module>mytest-dao</module>
-        <module>mytest-innerapi</module>
-        <module>mytest-worker</module>
-        <module>mytest-rpc</module>
-        <module>mytest-domain</module>
+        <module>myapp-service</module>
+        <module>myapp-api</module>
+        <module>myapp-web</module>
+        <module>myapp-dao</module>
+        <module>myapp-innerapi</module>
+        <module>myapp-worker</module>
+        <module>myapp-rpc</module>
+        <module>myapp-domain</module>
     </modules>
 
     <properties>
