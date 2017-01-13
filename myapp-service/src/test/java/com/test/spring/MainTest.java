@@ -21,7 +21,7 @@ public class MainTest {
     }
 
     public void init() {
-        System.out.println("com.test.spring.MainTest init.");
+        System.out.println("com.test.spring.MainTest init executed.");
     }
 
     public String getMail() {

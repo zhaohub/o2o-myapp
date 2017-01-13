@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="test" class="com.test.spring.MainTest" init-method="init">
+    <bean id="test" class="com.test.spring.MainTest" init-method="init" scope="prototype">
         <property name="username" value="zhaogang"/>
         <property name="mail" value="zg3407@gmail.com"/>
     </bean>
