@@ -26,14 +26,14 @@
         </filter>
     </appender>
 
-    <appender name="mysql-test" class="ch.qos.logback.classic.db.DBAppender">
+    <!--<appender name="mysql-test" class="ch.qos.logback.classic.db.DBAppender">
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <driverClass>com.mysql.jdbc.Driver</driverClass>
             <url>jdbc:mysql://192.168.99.100:3306/logtest</url>
             <user>root</user>
             <password>creepy</password>
         </connectionSource>
-    </appender>
+    </appender>-->
 
     <logger name="java.sql" additivity="false" level="debug">
         <appender-ref ref="o2o-test-debug"/>

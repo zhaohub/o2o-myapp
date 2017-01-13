@@ -1,9 +1,14 @@
 package com.test.spring;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by zhaogang3 on 2016/9/14.
  */
 public class MainTest {
+
+    public static final Logger logger = LoggerFactory.getLogger(MainTest.class);
 
     private String username;
     private String mail;
@@ -22,6 +27,8 @@ public class MainTest {
 
     public void init() {
         System.out.println("com.test.spring.MainTest init executed.");
+        logger.error("error log test");
+        logger.info("info log test");
     }
 
     public String getMail() {
