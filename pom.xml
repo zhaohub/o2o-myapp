@@ -86,8 +86,8 @@
     </build>
 
     <scm>
-        <url>https://github.com/zhaohub/o2o-mytest</url>
-        <connection>https://github.com/zhaohub/o2o-mytest.git</connection>
+        <url>https://github.com/zhaohub/o2o-myapp</url>
+        <connection>https://github.com/zhaohub/o2o-myapp.git</connection>
     </scm>
 
     <developers>
