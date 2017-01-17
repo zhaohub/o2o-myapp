@@ -13,10 +13,10 @@ public class SpringTest {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring-config.xml"});
-        MainTest test1 = context.getBean("test", MainTest.class);
-        MainTest test2 = context.getBean("test", MainTest.class);
+        //MainTest test1 = context.getBean("test", MainTest.class);
+        //MainTest test2 = context.getBean("test", MainTest.class);
 
-        ClassA a = (ClassA) context.getBean("a");
+        //ClassA a = (ClassA) context.getBean("a");
 
 
     }

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/task"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <context:annotation-driven/>
+
+    <aop:config proxy-target-class="true"/>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <bean id="test" class="com.test.spring.MainTest" init-method="init" scope="prototype">
         <property name="username" value="zhaogang"/>
@@ -10,7 +17,7 @@
 
     </bean>
 
-    <bean id="a" class="com.test.spring.ClassA" scope="prototype" lazy-init="true">
+    <!--<bean id="a" class="com.test.spring.ClassA" scope="prototype" lazy-init="true">
         <property name="classB">
             <ref local="b"/>
         </property>
@@ -26,6 +33,6 @@
         <property name="classA">
             <ref local="a"/>
         </property>
-    </bean>
+    </bean>-->
 
 </beans>
