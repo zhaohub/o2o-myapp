@@ -7,6 +7,25 @@
     <bean id="test" class="com.test.spring.MainTest" init-method="init" scope="prototype">
         <property name="username" value="zhaogang"/>
         <property name="mail" value="zg3407@gmail.com"/>
+
+    </bean>
+
+    <bean id="a" class="com.test.spring.ClassA" scope="prototype" lazy-init="true">
+        <property name="classB">
+            <ref local="b"/>
+        </property>
+    </bean>
+
+    <bean id="b" class="com.test.spring.ClassB" scope="prototype" depends-on="c">
+        <property name="classC">
+            <ref local="c"/>
+        </property>
+    </bean>
+
+    <bean id="c" class="com.test.spring.ClassC" scope="prototype">
+        <property name="classA">
+            <ref local="a"/>
+        </property>
     </bean>
 
 </beans>
