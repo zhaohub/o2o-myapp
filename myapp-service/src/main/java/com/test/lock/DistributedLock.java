@@ -3,16 +3,20 @@ package com.test.lock;
 import redis.clients.jedis.Jedis;
 
 /**
- * 基于redis实现分布式锁实现
+ * 基于redis的分布式锁实现
  * Created by zhaogang3 on 2017/1/18.
  */
 public class DistributedLock {
 
-    private Jedis jedis;
+    private Jedis jedis = new Jedis("test.redis.host");
 
     private Thread ownerThread;
 
     public DistributedLock() {
+    }
+
+    public DistributedLock(Thread ownerThread) {
+        this.ownerThread = ownerThread;
     }
 
     public DistributedLock(Jedis jedis, Thread ownerThread) {
@@ -29,7 +33,9 @@ public class DistributedLock {
      * @return
      */
     public synchronized boolean tryLock(String key, int retryCount, int waitTime) {
-        if (ownerThread == null || !ownerThread.equals(Thread.currentThread()))
+        if (ownerThread != null && !ownerThread.equals(Thread.currentThread()))
+            return false;
+        else
             ownerThread = Thread.currentThread();
 
         int i = 0;
