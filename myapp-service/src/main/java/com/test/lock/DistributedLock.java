@@ -63,13 +63,13 @@ public class DistributedLock {
      * @return
      */
     public synchronized boolean unLock(String key) {
-        boolean result = false;
+        boolean res = false;
         if (ownerThread != null && ownerThread.equals(Thread.currentThread())) {
             jedis.del(key);
-            result = true;
+            res = true;
         }
         ownerThread = null;
-        return result;
+        return res;
     }
 
 }
