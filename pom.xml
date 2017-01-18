@@ -29,6 +29,7 @@
         <mysql.jdbc.version>5.1.21</mysql.jdbc.version>
         <junit.version>4.5</junit.version>
         <springframework.version>3.2.9.RELEASE</springframework.version>
+        <jedis.version>2.0.0</jedis.version>
     </properties>
 
     <build>
