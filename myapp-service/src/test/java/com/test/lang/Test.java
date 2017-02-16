@@ -9,6 +9,9 @@ import java.util.Map;
  * Created by zhaogang3 on 2016/6/21.
  */
 public class Test {
+    static void say(){
+        System.out.println(1111);
+    }
 
     public static void main(String[] args) {
         /*Map map = new HashMap();
@@ -22,6 +25,7 @@ public class Test {
         BigInteger bigInteger = new BigInteger("9");
         System.out.println(bigInteger.pow(81).toString());
         //196627050475552913618075908526912116283103450944214766927315415537966391196809
-
+        Test test = null;
+        test.say();
     }
 }
