@@ -30,6 +30,7 @@
         <junit.version>4.5</junit.version>
         <springframework.version>3.2.9.RELEASE</springframework.version>
         <jedis.version>2.0.0</jedis.version>
+        <servlet.version>2.5</servlet.version>
     </properties>
 
     <build>
