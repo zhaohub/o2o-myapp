@@ -28,5 +28,6 @@
 
     <root level="info">
         <appender-ref ref="o2o-test-debug"/>
+        <appender-ref ref="stdout"/>
     </root>
 </configuration>
