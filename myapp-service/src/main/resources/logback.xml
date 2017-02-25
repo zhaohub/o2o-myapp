@@ -39,9 +39,8 @@
         <appender-ref ref="o2o-test-debug"/>
     </logger>
 
-    <root level="info">
+    <root level="error">
         <appender-ref ref="o2o-test-debug"/>
-        <appender-ref ref="mysql-test"/>
         <appender-ref ref="stdout"/>
     </root>
 </configuration>
