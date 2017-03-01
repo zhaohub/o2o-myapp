@@ -22,10 +22,12 @@ public class Test {
         System.out.println(myMap.get("test1"));
         System.out.println(myMap.containsKey("test1"));*/
 
-        BigInteger bigInteger = new BigInteger("9");
+        /*BigInteger bigInteger = new BigInteger("9");
         System.out.println(bigInteger.pow(81).toString());
         //196627050475552913618075908526912116283103450944214766927315415537966391196809
         Test test = null;
-        test.say();
+        test.say();*/
+
+        Long l = Long.parseLong("705077137000042");
     }
 }
