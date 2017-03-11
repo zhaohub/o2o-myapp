@@ -24,5 +24,7 @@ public class Test {
         byte[] b = zk.getData(node, false, stat);
         System.out.println(new String(b));
         zk.close();
+
+
     }
 }
