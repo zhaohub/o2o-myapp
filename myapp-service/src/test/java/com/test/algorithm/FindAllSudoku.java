@@ -68,7 +68,6 @@ public class FindAllSudoku {
         return true;
     }
 
-
     public static void main(String[] args) {
         List<char[][]> res = findAllSudoku(100);
         for (int i = 0; i < res.size(); i++) {
