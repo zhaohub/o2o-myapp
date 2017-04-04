@@ -13,7 +13,7 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 1000000; i++) {
             executorService.execute(new Runnable() {
                 @Override
