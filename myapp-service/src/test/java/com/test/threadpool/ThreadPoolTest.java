@@ -13,15 +13,20 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 10; i++) {
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        for (int i = 0; i < 1000000; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        Thread.sleep(10000000000000L);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    for(int j=0;j<10000000;j++){
+                        try {
+                            //Thread.sleep(100L);
+                            Math.sin(j);
+                            //System.out.println("hello"+Thread.currentThread().getName());
+                        } catch (Exception e
+                            ) {
+                            //e.printStackTrace();
+                        }
                     }
                 }
             });
