@@ -7,9 +7,9 @@
 
     <context:annotation-driven/>
 
-    <aop:config proxy-target-class="true"/>
+    <!--<aop:config proxy-target-class="true"/>
 
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>-->
 
     <bean id="test" class="com.test.spring.MainTest" init-method="init" scope="prototype">
         <property name="username" value="zhaogang"/>
