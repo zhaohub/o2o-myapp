@@ -60,7 +60,7 @@ public class Server2 {
                         if (selectionKey.isValid() && selectionKey.isReadable()) {
                             //System.out.println(selectionKey.attachment() + " - 读数据事件");
                             SocketChannel clientChannel = (SocketChannel) selectionKey.channel();
-
+                            buf.clear();
                             int n = clientChannel.read(buf);
                             if (n == -1) {
                                 clientChannel.close();
