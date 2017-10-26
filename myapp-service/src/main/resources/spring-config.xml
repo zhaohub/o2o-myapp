@@ -11,7 +11,7 @@
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>-->
 
-    <bean id="test" class="com.test.spring.MainTest" init-method="init" scope="prototype">
+    <bean id="test" name="test1" class="com.test.spring.MainTest" init-method="init" scope="prototype">
         <property name="username" value="zhaogang"/>
         <property name="mail" value="zg3407@gmail.com"/>
 
