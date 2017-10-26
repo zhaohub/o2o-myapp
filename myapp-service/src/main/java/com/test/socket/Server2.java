@@ -15,7 +15,10 @@ import java.util.Set;
  */
 public class Server2 {
 
-    public static int BUFFER_SIZE = 2048;
+    private static int BUFFER_SIZE = 2048;
+    private static String s = "hello, server!\n";
+
+    private static ByteBuffer buf = ByteBuffer.allocate(BUFFER_SIZE);
 
     public static void main(String[] args) {
         try {
@@ -32,31 +35,31 @@ public class Server2 {
 
             while (true) {
                 try {
+                    int readyChannels = selector.select();
+                    if (readyChannels == 0) continue;
 
-                    selector.select();
-                    Set<SelectionKey> selectionKeySet = selector.selectedKeys();
+                    Set<SelectionKey> selectionKeys = selector.selectedKeys();
 
-                    Iterator<SelectionKey> it = selectionKeySet.iterator();
+                    Iterator<SelectionKey> it = selectionKeys.iterator();
 
                     while (it.hasNext()) {
                         SelectionKey selectionKey = it.next();
-                        if(!selectionKey.isValid()) continue;
+
                         if (selectionKey.isAcceptable()) {
                             System.out.println(selectionKey.attachment() + "-接受请求事件");
 
                             ServerSocketChannel serverSocketChannel = (ServerSocketChannel) selectionKey.channel();
+
+                            int id = (int) (Math.random() * 100);
                             serverSocketChannel.accept().configureBlocking(false)
-                                    .register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE).attach((int) (Math.random() * 100));
+                                    .register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE).attach(id);
 
                             System.out.println(selectionKey.attachment() + "-已连接");
-
                         }
 
-                        if (selectionKey.isReadable()) {
-                            System.out.println(selectionKey.attachment() + " - 读数据事件");
+                        if (selectionKey.isValid() && selectionKey.isReadable()) {
+                            //System.out.println(selectionKey.attachment() + " - 读数据事件");
                             SocketChannel clientChannel = (SocketChannel) selectionKey.channel();
-
-                            ByteBuffer buf = ByteBuffer.allocate(BUFFER_SIZE);
 
                             int n = clientChannel.read(buf);
                             if (n == -1) {
@@ -64,21 +67,21 @@ public class Server2 {
                             } else {
                                 System.out.println(selectionKey.attachment() + " - 读数据" + getString(buf));
                             }
-
                         }
 
-                        if (selectionKey.isWritable()) {
-                            System.out.println(selectionKey.attachment() + " - 写数据事件");
+                        if (selectionKey.isValid() && selectionKey.isWritable()) {
+                            //System.out.println(selectionKey.attachment() + " - 写数据事件");
                             SocketChannel clientChannel = (SocketChannel) selectionKey.channel();
 
-                            ByteBuffer buf = ByteBuffer.allocate(BUFFER_SIZE);
-                            String s = "hello, client!\n";
-                            buf.put(s.getBytes());
                             buf.flip();
-                            clientChannel.write(buf);
-                            clientChannel.close();
+                            while (buf.hasRemaining()) {
+                                System.out.println(selectionKey.attachment() + "- 写数据到客户端");
+                                clientChannel.write(buf);
+                            }
+                            buf.clear();
+
                         }
-                        if (selectionKey.isConnectable()) {
+                        if (selectionKey.isValid() && selectionKey.isConnectable()) {
                             System.out.println(selectionKey.attachment() + "连接事件");
                         }
                         it.remove();
