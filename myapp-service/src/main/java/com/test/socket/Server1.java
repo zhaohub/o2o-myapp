@@ -3,6 +3,8 @@ package com.test.socket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,18 +15,23 @@ import java.util.concurrent.TimeUnit;
  */
 public class Server1 {
 
-    private static ExecutorService executorService = new ThreadPoolExecutor(8, 8, 5, TimeUnit.MINUTES,
+    private static ExecutorService executorService = new ThreadPoolExecutor(3, 3, 5, TimeUnit.MINUTES,
             new ArrayBlockingQueue<Runnable>(1000), new ThreadPoolExecutor.AbortPolicy());
 
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(8899);
+            System.out.println("server started at port 8899");
             //serverSocket.setSoTimeout(200000);
             while (true) {
                 try {
                     Socket socket = serverSocket.accept();
 
+                    List<Socket> list = new ArrayList<Socket>();
+                    list.add(socket);
+
+                    System.out.println("accept a client");
                     //new Thread(new ServerThread(socket)).start();
                     executorService.execute(new ServerThread(socket));
                 } catch (Exception e) {

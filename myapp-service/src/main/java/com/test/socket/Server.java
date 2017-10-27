@@ -13,7 +13,9 @@ public class Server {
 
         ServerSocket serverSocket = new ServerSocket(8899);
 
+        System.out.println("server started at port 8899");
         Socket socket = serverSocket.accept();
+        System.out.println("accept a client");
 
         InputStream is = socket.getInputStream();
         InputStreamReader isr = new InputStreamReader(is);

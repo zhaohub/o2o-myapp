@@ -10,13 +10,14 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-        Socket socket = new Socket("169.254.81.9", 9900);
+        Socket socket = new Socket("192.168.195.34", 8000);
         OutputStream os = socket.getOutputStream();
 
         PrintWriter pw = new PrintWriter(os);
 
-        pw.write("request from client!");
+        pw.write("request from client! 2323243242");
         pw.flush();
+
         socket.shutdownOutput();
 
         InputStream is = socket.getInputStream();

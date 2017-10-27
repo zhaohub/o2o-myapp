@@ -9,19 +9,21 @@ import java.util.Scanner;
  */
 public class Client1 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-        Socket socket = new Socket("localhost", 9900);
+        Socket socket = new Socket("localhost", 8899);
         OutputStream os = socket.getOutputStream();
 
         PrintWriter pw = new PrintWriter(os);
         pw.write("client id = " + (int) (Math.random() * 100000));
 
+        Thread.sleep(10000);
+
         System.out.println("Input:");
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         pw.write("\n");
-        pw.write(s);
+        pw.write(s);*/
 
         for (int i = 0; i < 100; i++) {
             pw.print(i + " ");
