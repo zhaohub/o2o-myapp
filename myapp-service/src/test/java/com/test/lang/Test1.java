@@ -16,13 +16,15 @@ public class Test1 {
 
         System.out.println(r.bitLength());*/
 
-        Long[] a = {12333L,1232432L,12412L};
+        /*Long[] a = {12333L,1232432L,12412L};
         Long[] b = {12333L,1232432L,12412L};
 
         String aa = Arrays.toString(a);
         String bb= Arrays.toString(b);
 
-        System.out.println(aa.equals(bb));
+        System.out.println(aa.equals(bb));*/
+
+        byte[]  b = new byte[1024*1024*1000];
     }
 
 
